@@ -2,7 +2,16 @@ function alterarStatus(id) {
     let gameClicado = document.getElementById(`game-${id}`);
     let imagem = gameClicado.querySelector('.dashboard__item__img');
     let botao = gameClicado.querySelector('.dashboard__item__button');
-
+    let nomeJogo = gameClicado.querySelector('.dashboard__item__name');
+  
+    if (botao.classList.contains('dashboard__item__button--return')){
+        let opcao = window.confirm(`Você realmente deseja devolver ${nomeJogo.textContent}?`);
+        if (opcao) {
+          alert ('jogo devolvido');
+        } else {
+          return
+        }
+    }
     if (imagem.classList.contains('dashboard__item__img--rented')){
         imagem.classList.remove('dashboard__item__img--rented');
 //        alert ('teste 4')
@@ -13,6 +22,9 @@ function alterarStatus(id) {
 //        alert ('Teste 2')
         return
     } 
+
+
+
 
     if (imagem.classList.contains('dashboard__item__img')){
         imagem.classList.add('dashboard__item__img--rented');
